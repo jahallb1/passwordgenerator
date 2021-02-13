@@ -9,17 +9,92 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-var specialCharacters = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', '[', ']', '-', '_', '.'];
-var upperCasedCharacters = ['A', 'B', 'C', 'D', 'E,', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-var lowerCasedCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var specialCharacters = [
+  "@",
+  "%",
+  "+",
+  "\\",
+  "/",
+  "'",
+  "!",
+  "#",
+  "$",
+  "^",
+  "?",
+  ":",
+  ",",
+  ")",
+  "(",
+  "}",
+  "{",
+  "[",
+  "]",
+  "-",
+  "_",
+  ".",
+];
+var upperCasedCharacters = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E,",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+var lowerCasedCharacters = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
 
 //function to generate random characters from the above arrays
 function randonGenerator(fourArrays) {
@@ -35,13 +110,14 @@ console.log(String.fromCharCode(97));
 //function to determine the length of the password
 
 function passwordRules() {
-  var passwordLength = window.prompt("Please choose a desired number of charcters from 8 to 128.");
+  var passwordLength = window.prompt(
+    "Please choose a desired number of charcters from 8 to 128."
+  );
   var pwdLength = parseInt(passwordLength);
   if (pwdLength >= 8 && pwdLength <= 128) {
     console.log(pwdLength);
     return pwdLength;
-  }
-  else {
+  } else {
     window.alert("Invalid character length, try again.");
     console.log(pwdLength);
     return -1;
@@ -63,16 +139,21 @@ function generatePassword() {
 
   upperChoice = window.confirm("Would you like ot use uppercase characters?");
   lowerChoice = window.confirm("Would you like to use lowercase characters? ");
-  specialChoice = window.confirm("Would you like to inculde special characters?");
+  specialChoice = window.confirm(
+    "Would you like to inculde special characters?"
+  );
   numberChoice = window.confirm("Would you like to use numeric characters?");
 
   //decision on what to include in password
 
-  if (desireLength > 0 && (upperChoice || lowerChoice || specialChoice || numberChoice)) {
+  if (
+    desireLength > 0 &&
+    (upperChoice || lowerChoice || specialChoice || numberChoice)
+  ) {
     console.log("partytime");
     let tempArray = [];
-    
-    if(upperChoice) {
+
+    if (upperChoice) {
       tempArray = tempArray.concat(upperCasedCharacters);
       console.log(lowerCasedCharacters);
       console.log(tempArray);
@@ -84,7 +165,7 @@ function generatePassword() {
     }
 
     if (specialChoice) {
-      tempArray = tempArray.concat(numericCharacters);
+      tempArray = tempArray.concat(specialCharacters);
       console.log(tempArray);
     }
 
@@ -99,9 +180,7 @@ function generatePassword() {
     }
     console.log(key);
     return key;
-  }
-
-  else {
+  } else {
     return "";
   }
 }
